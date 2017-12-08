@@ -10,6 +10,30 @@ var config = {
 firebase.initializeApp(config);
 database = firebase.database();
 
+var playerID;
+var enemyID;
+
+$(document).ready(function() {
+  $("#gameView").hide();
+  // If user has previously set a playerID in localStorage, set it again
+  if (localStorage.getItem("playerID") !== null) {
+    playerID = localStorage.getItem("playerID");
+    $("#playerTitle").text(playerID);
+    $("#userIDSubmission").hide();
+    $("#gameView").show();
+  }
+
+  $("#userIdSubmitBtn").on("click", function() {
+    if ($("#nickNameField").val().trim() !== "") {
+      playerID = $("#nickNameField").val().trim();
+      localStorage.setItem('playerID', playerID);
+      $("#playerTitle").text(playerID);
+      $("#userIDSubmission").hide();
+      $("#gameView").show();
+    }
+  })
+})
+
 function rps(p1, p2) {
   if (p1 == p2) {
     return 'draw';
