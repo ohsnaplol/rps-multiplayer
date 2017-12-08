@@ -5,6 +5,7 @@
     <title>RPS Multiplayer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="./assets/js/main.js"></script>
   </head>
@@ -21,9 +22,27 @@
             <button type="submit" class="btn btn-primary">Enter</button>
           </form>
         </div>
-        <!-- Where game takes place -->
-        <div class="row">
-
+      </div>
+      <!-- Where game takes place -->
+      <div class="row" id="gameView">
+        <!-- Friendly side -->
+        <div class="col-lg-6">
+          <h2>You</h2>
+          <div class="row">
+            <img src="" alt="Equipped Weapon">
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Rock</button>
+            <button type="button" class="btn btn-primary">Paper</button>
+            <button type="button" class="btn btn-primary">Scissorcs</button>
+          </div>
+        </div>
+        <!-- Enemy side -->
+        <div class="col-lg-6">
+          <h2>Enemy</h2>
+          <div class="row">
+            <img src="" alt="Enemy Weapon" id="enemyWeapon">
+          </div>
         </div>
       </div>
     </div>
