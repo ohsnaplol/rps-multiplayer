@@ -16,7 +16,7 @@ var gameIsActive;
 
 $(document).ready(function() {
   // Constantly checking to see whether someone is already playing
-  database.ref().on(“value”, function(snapshot) {
+  database.ref().on("value", function(snapshot) {
     if (snapshot.val().gameIsActive) {
       gameIsActive = true;
       $("#gameView").show();
@@ -24,7 +24,7 @@ $(document).ready(function() {
       gameIsActive = false;
       $("#gameView").hide();
     }
-  }
+  });
   // If user has previously set a playerID in localStorage, set name field
   if (localStorage.getItem("playerID") !== null) {
     $("#nickNameField").val(playerID);
