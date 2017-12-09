@@ -28,7 +28,7 @@ $(document).ready(function() {
   $("#userIDSubmission").submit(function(event) {
     event.preventDefault();
     var nameInField = $("#nickNameField").val().trim();
-    if (nameInField !== "" && nameInField.length > 3 && !gameIsActive) {
+    if (nameInField.length > 3 && !gameIsActive) {
       playerID = nameInField;
       localStorage.setItem('playerID', playerID);
       $("#playerTitle").text(playerID);
