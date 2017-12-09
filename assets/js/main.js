@@ -23,7 +23,8 @@ $(document).ready(function() {
     $("#gameView").show();
   }
 
-  $("#userIdSubmitBtn").on("click", function() {
+  $("#userIDSubmission").submit(function(event) {
+    event.preventDefault();
     if ($("#nickNameField").val().trim() !== "") {
       playerID = $("#nickNameField").val().trim();
       localStorage.setItem('playerID', playerID);
