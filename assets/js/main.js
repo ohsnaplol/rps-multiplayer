@@ -32,12 +32,12 @@ $(document).ready(function() {
 
   $("#userIDSubmission").submit(function(event) {
     event.preventDefault();
-    if ($("#nickNameField").val().trim() !== "" && !gameIsActive) {
-      playerID = $("#nickNameField").val().trim();
+    var nameInField = $("#nickNameField").val().trim();
+    if (nameInField !== "" && nameInField.length > 3 && !gameIsActive) {
+      playerID = nameInField;
       localStorage.setItem('playerID', playerID);
       $("#playerTitle").text(playerID);
       $("#userIDSubmission").hide();
-      $("#gameView").show();
     }
   })
 })
