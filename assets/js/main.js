@@ -12,20 +12,27 @@ database = firebase.database();
 
 var playerID;
 var enemyID;
+var gameIsActive;
 
 $(document).ready(function() {
-  $("#gameView").hide();
-  // If user has previously set a playerID in localStorage, set it again
+  // Constantly checking to see whether someone is already playing
+  database.ref().on(“value”, function(snapshot) {
+    if (snapshot.val().gameIsActive) {
+      gameIsActive = true;
+      $("#gameView").show();
+    } else {
+      gameIsActive = false;
+      $("#gameView").hide();
+    }
+  }
+  // If user has previously set a playerID in localStorage, set name field
   if (localStorage.getItem("playerID") !== null) {
-    playerID = localStorage.getItem("playerID");
-    $("#playerTitle").text(playerID);
-    $("#userIDSubmission").hide();
-    $("#gameView").show();
+    $("#nickNameField").val(playerID);
   }
 
   $("#userIDSubmission").submit(function(event) {
     event.preventDefault();
-    if ($("#nickNameField").val().trim() !== "") {
+    if ($("#nickNameField").val().trim() !== "" && !gameIsActive) {
       playerID = $("#nickNameField").val().trim();
       localStorage.setItem('playerID', playerID);
       $("#playerTitle").text(playerID);
