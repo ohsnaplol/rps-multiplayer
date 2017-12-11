@@ -17,11 +17,10 @@ var gameIsActive;
 $(document).ready(function() {
   // Constantly checking to see whether someone is already playing
   database.ref().on("value", function(snapshot) {
-    if (snapshot.val().gameIsActive) {
-      gameIsActive = true;
+    gameIsActive = snapshot.val().gameIsActive;
+    if (gameIsActive) {
       $("#gameView").show();
     } else {
-      gameIsActive = false;
       $("#gameView").hide();
     }
   });
