@@ -25,7 +25,6 @@ $(document).ready(function() {
       localStorage.setItem('playerID', playerID)
       if (setPlayerInDatabase(playerID)) {
         $("#userIDSubmission").hide()
-        $("#userIdSubmitBtn").text("Leave game")
       } else {
         console.log("Room full")
       }
