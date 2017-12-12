@@ -40,7 +40,7 @@ database.on("value", function(snapshot) {
   }
   gameIsActive ? $("#gameView").show() : $("#gameView").hide()
 
-  $("#playerTitle").text(snapshot.val().player1)
+  $("#playerTitle").text(snapshot.val().player1) // TODO update depending who user is playing
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code)
 })
