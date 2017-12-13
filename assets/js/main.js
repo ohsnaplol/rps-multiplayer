@@ -30,6 +30,13 @@ $(document).ready(function() {
       }
     }
   })
+
+  // if game is active and p1 clicks rock/paper/scissors set it as p1 weapon
+  // if game is active and p2 clicks rock/paper/scissors set it as p2 weapon
+  // if both players have set their weapons, get their weapons and submit it to rps(p1, p2)
+  // give points to whoever wins in database, wait 5 seconds, clear weapon field
+
+  // if user has not made a decision in 60 seconds or if they click leave game button, clear player from database to allow space for someone else
 })
 
 // Constantly checking to see whether someone is already playing
